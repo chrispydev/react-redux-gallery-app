@@ -2,6 +2,8 @@ ou can run:
 
 # This is a react redux gallery app
 
+<img width="1531" alt="Screenshot 2020-08-27 at 11 38 47" src="./amazon.png">
+
 This is recreated project from jakobowsky youtube channel.
 The frontend was html css and javascript but I decided to turn it into react redux project
 
