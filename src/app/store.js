@@ -1,12 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit';
-import productsCategorySlice from '../features/products/productsCategorySlice';
-import productsSlice from '../features/products/productsSlice';
-import productSearchSlice from '../features/products/productSearchSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-export default configureStore({
-  reducer: {
-    products: productsSlice,
-    productsCategory: productsCategorySlice,
-    productSearch: productSearchSlice,
-  },
+import rootReducer from './reducers';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
+
+export const persistor = persistStore(store);
