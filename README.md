@@ -1,5 +1,3 @@
-ou can run:
-
 # This is a react redux gallery app
 
 <img width="1531" alt="Screenshot 2020-08-27 at 11 38 47" src="./amazon.png">
